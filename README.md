@@ -1,20 +1,43 @@
 # AI Data Toolkit
 
-AI Data Toolkit, veri bilimciler ve yapay zeka mühendisleri için geliştirilmiş bir araç setidir. Bu proje, veri işleme, analiz ve görselleştirme süreçlerini kolaylaştırmak amacıyla tasarlanmıştır.
+Bu proje, yapay zeka ve veri analizi alanındaki ihtiyaçları karşılamak amacıyla geliştirilmiş bir araç setidir. **AI Data Toolkit**, veri işleme, modelleme ve görselleştirme gibi temel işlevler sunarak kullanıcıların daha verimli bir şekilde çalışmasına olanak tanır.
 
 ## Özellikler
 
-- **Veri İşleme**: Büyük veri setlerini düzenlemek ve dönüştürmek için araçlar.
-- **Veri Analizi**: İstatistiksel analiz ve modelleme araçları.
-- **Makine Öğrenimi**: Modeller oluşturma, eğitme ve değerlendirme için destek.
-- **Görselleştirme**: Verileri anlamlı ve çekici grafiklerle sunma.
-
+- **Veri İşleme**: Büyük veri kümeleriyle kolayca çalışmak için optimize edilmiş araçlar.
+- **Modelleme**: Makine öğrenimi ve derin öğrenme modellerini hızlıca oluşturma ve eğitme.
+- **Görselleştirme**: Karmaşık veri setlerini anlamayı kolaylaştıran etkileşimli grafikler ve raporlar.
+- **Esneklik**: Python, Jupyter Notebook ve HTML gibi çoklu dil desteği.
 
 
 ## Kurulum
 
-Projeyi kullanmaya başlamak için aşağıdaki adımları takip edin:
-
-1. **Depoyu klonlayın:**
+1. Bu projeyi klonlayın:
    ```bash
    git clone https://github.com/emredeveloper/ai-data-toolkit.git
+   cd ai-data-toolkit
+   ```
+
+2. Gerekli bağımlılıkları yükleyin:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Jupyter Notebook'u başlatın:
+   ```bash
+   jupyter notebook
+   ```
+
+## Kullanım
+
+1. Veri kümenizi yükleyin ve işleyin.
+2. İlgili modeli seçin ve eğitin.
+3. Sonuçları görselleştirin ve çıktı alın.
+
+## Katkıda Bulunma
+
+Katkılarınızı memnuniyetle karşılıyoruz! Lütfen katkıda bulunmadan önce [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını inceleyin.
+
+## Lisans
+
+Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
