@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcı Düzenle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container py-4">
+    <h2>Kullanıcı Düzenle</h2>
+    <form id="editForm" class="mb-3">
+      <input type="text" class="form-control mb-2" name="name" value="{{ user['name'] }}" required>
+      <input type="email" class="form-control mb-2" name="email" value="{{ user['email'] }}" required>
+      <button class="btn btn-success" type="submit">Kaydet</button>
+    </form>
+    <div id="result"></div>
+    <a class="btn btn-link" href="{{ url_for('users_page') }}">Kullanıcılar</a>
+    <script>
+    document.getElementById('editForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        email: form.email.value
+      };
+      const res = await fetch('/api/update/{{ user["_id"] }}', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      document.getElementById('result').innerText = json.modified_count ? "Başarıyla güncellendi!" : "Güncellenemedi!";
+    }
+    </script>
+</body>
+</html>

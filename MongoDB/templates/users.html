@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcılar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body class="container py-4">
+    <h2 class="mb-4">Kullanıcılar</h2>
+    <form class="row g-2 mb-3" method="get">
+        <div class="col-auto">
+            <input class="form-control" name="search" placeholder="Ara..." value="{{ search }}">
+        </div>
+        <div class="col-auto">
+            <select class="form-select" name="sort">
+                <option value="">Sırala</option>
+                <option value="name" {% if sort=='name' %}selected{% endif %}>İsim</option>
+                <option value="email" {% if sort=='email' %}selected{% endif %}>Email</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Filtrele</button>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>İsim</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr id="row-{{ user['_id'] }}">
+                    <td><a href="{{ url_for('user_page', id=user['_id']) }}">{{ user['name'] }}</a></td>
+                    <td>{{ user['email'] }}</td>
+                    <td>{{ user['_id'] }}</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" href="{{ url_for('edit_user_form', id=user['_id']) }}">Düzenle</a>
+                        <button class="btn btn-sm btn-danger" onclick="deleteUser('{{ user['_id'] }}')">Sil</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+            <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+        </ul>
+    </nav>
+    <a class="btn btn-link" href="{{ url_for('home') }}">Ana Sayfa</a>
+    <script>
+    function deleteUser(id) {
+        if (!confirm("Silmek istediğinize emin misiniz?")) return;
+        fetch('/api/delete/' + id, {method: 'POST'})
+            .then(res => res.json())
+            .then(json => {
+                if (json.deleted_count) {
+                    document.getElementById('row-' + id).remove();
+                } else {
+                    alert("Silinemedi!");
+                }
+            });
+    }
+    </script>
+</body>
+</html>
