@@ -5,10 +5,21 @@ Bu proje, yapay zeka ve veri analizi alanındaki ihtiyaçları karşılamak amac
 ## Özellikler
 
 - **Veri İşleme**: Büyük veri kümeleriyle kolayca çalışmak için optimize edilmiş araçlar.
-- **Modelleme**: Makine öğrenimi ve derin öğrenme modellerini hızlıca oluşturma ve eğitme.
+- **Modelleme**: Makine öğrenimi ve istatistiksel modelleme araçları.
 - **Görselleştirme**: Karmaşık veri setlerini anlamayı kolaylaştıran etkileşimli grafikler ve raporlar.
-- **Esneklik**: Python, Jupyter Notebook ve HTML gibi çoklu dil desteği.
+- **Esneklik**: Python ve Jupyter Notebook kullanılarak geliştirilmiş bir yapı.
 
+## Kullanılan Araçlar ve Kütüphaneler
+
+Bu projede aşağıdaki araçlar ve kütüphaneler kullanılmaktadır:
+
+- **Ollama**: Büyük dil modellerini entegre etmek ve çalıştırmak için.
+- **MongoDB**: Veritabanı yönetimi için.
+- **Pandas**: Veri işleme ve analiz için.
+- **NumPy**: Sayısal hesaplamalar ve veri manipülasyonu için.
+- **scikit-learn**: Makine öğrenimi algoritmaları ve modelleme için.
+- **Matplotlib**: Veri görselleştirme için.
+- **Statsmodels**: İstatistiksel modelleme ve analiz için.
 
 ## Kurulum
 
