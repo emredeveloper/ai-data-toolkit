@@ -1,0 +1,44 @@
+# Machine Learning Libraries
+scikit-learn
+numpy
+pandas
+tqdm
+gym
+
+# Visualization
+matplotlib
+seaborn
+plotly
+missingno
+
+# Deep Learning
+# tensorflow  # Uncomment if needed
+# torch  # Uncomment if needed
+# transformers  # Uncomment if needed
+
+# NLP Libraries
+nltk
+
+# API Interaction
+requests
+azure-ai-inference
+azure-core
+google-adk  # For Google Agents
+google-genai
+
+# AI and LLM Libraries
+pydantic-ai
+llama-index-core
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
+openai
+
+# Database
+pymongo
+
+# Terminal UI
+rich
+
+# Additional Utilities
+python-dotenv  # For environment variables
+uvx  # For MCP server
