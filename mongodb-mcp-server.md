@@ -1,7 +1,3 @@
-Metni büyük-küçük harf uyumu ve göze hoş gelen bir şekilde düzenledim. Aşağıda güncellenmiş hali yer alıyor:
-
----
-
 **Proje Tanıtımı 🌟**
 
 Bu proje, MongoDB veritabanıyla çalışan uygulamalar geliştirmek ve veritabanı işlemlerini kolaylaştırmak amacıyla oluşturulmuştur. Cursor IDE ile entegre edilen MCP sunucusu, veritabanı işlemlerini daha verimli hale getirir.
