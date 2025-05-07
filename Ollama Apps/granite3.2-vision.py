@@ -1,7 +1,6 @@
 import requests
 import base64
 import os
-import argparse
 from PIL import Image
 import io
 import tkinter as tk
@@ -26,7 +25,6 @@ def resolve_path(file_path):
     return file_path
 
 def process_image(image_path, prompt, model="granite3.2-vision:latest"):
-    """Process an image with the model."""
     # Resize image if needed
     with Image.open(image_path) as img:
         max_size = 1024
@@ -61,11 +59,9 @@ def process_image(image_path, prompt, model="granite3.2-vision:latest"):
         return result
     else:
         print(f"Error: {response.status_code}")
-        print(response.text)
         return None
 
 def process_pdf(pdf_path, prompt, model):
-    """Process all images in a PDF."""
     temp_dir = tempfile.mkdtemp()
     try:
         image_paths = []
@@ -84,56 +80,50 @@ def process_pdf(pdf_path, prompt, model):
         
         for i, img_path in enumerate(image_paths, 1):
             print(f"\nProcessing image {i}/{len(image_paths)} from PDF...")
-            image_prompt = f"[Image {i}/{len(image_paths)} from PDF] {prompt}"
-            process_image(img_path, image_prompt, model)
+            process_image(img_path, f"[Image {i}/{len(image_paths)}] {prompt}", model)
             
-    except Exception as e:
-        print(f"Error processing PDF: {str(e)}")
     finally:
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir, ignore_errors=True)
 
+def select_file():
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilename(
+        title="Select Image or PDF",
+        filetypes=[("All files", "*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.pdf;*.*")]
+    )
+    root.destroy()
+    return file_path
+
 def main():
-    parser = argparse.ArgumentParser(description="Query vision models with images or PDFs")
-    parser.add_argument("--file", "-f", help="Path to image or PDF file")
-    parser.add_argument("--prompt", "-p", help="Text prompt to send to the model")
-    parser.add_argument("--model", "-m", default="granite3.2-vision:latest", help="Model name")
-    parser.add_argument("--host", default="http://localhost:11434", help="Ollama API host")
-    args = parser.parse_args()
+    print("Granite3.2 Vision Model Interface")
+    print("---------------------------------")
     
-    global OLLAMA_API_HOST
-    OLLAMA_API_HOST = args.host
-    
-    # Get file path
-    file_path = resolve_path(args.file) if args.file else None
-    if not file_path or not os.path.exists(file_path):
-        print("Please select a file from the dialog...")
-        root = tk.Tk()
-        root.withdraw()
-        file_path = filedialog.askopenfilename(
-            title="Select Image or PDF File",
-            filetypes=[
-                ("All supported files", "*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.pdf"),
-                ("Image files", "*.png;*.jpg;*.jpeg;*.gif;*.bmp"),
-                ("PDF files", "*.pdf"),
-                ("All files", "*.*")
-            ]
-        )
-        root.destroy()
-        if not file_path:
-            print("No file selected. Exiting.")
-            return
+    # Select file
+    print("Please select an image or PDF file...")
+    file_path = select_file()
+    if not file_path:
+        print("No file selected. Exiting.")
+        return
     
     # Get prompt
-    prompt = args.prompt or input("Enter your prompt for the model: ")
+    prompt = input("Enter prompt: ")
     
+    # Get model (optional)
+    use_custom = input("Use default model (granite3.2-vision:latest)? [Y/n]: ").lower()
+    model = "granite3.2-vision:latest"
+    if use_custom == 'n':
+        model = input("Enter model name: ")
+    
+    # Process file
     try:
         if file_path.lower().endswith('.pdf'):
-            process_pdf(file_path, prompt, args.model)
+            process_pdf(file_path, prompt, model)
         else:
-            process_image(file_path, prompt, args.model)
+            process_image(file_path, prompt, model)
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"Error: {e}")
         print("\nMake sure Ollama is running and the model is installed.")
 
 if __name__ == "__main__":
