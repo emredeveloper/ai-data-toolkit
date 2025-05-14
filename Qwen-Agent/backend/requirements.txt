@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+python-dateutil
+python-dotenv
+qwen-agent[code_interpreter]
+matplotlib
