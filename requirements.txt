@@ -18,6 +18,7 @@ missingno
 
 # NLP Libraries
 nltk
+PyMuPDF
 
 # API Interaction
 requests
