@@ -40,6 +40,7 @@ Bu depoda yer alan başlıca klasörler ve açıklamaları aşağıda sunulmuşt
 | `Qwen-Agent`            | Qwen modeli tabanlı akıllı ajan uygulamaları ve tarayıcı eklentisi geliştirme örnekleri      |
 | `papers`                | Yapay zeka ve veri bilimi alanındaki önemli akademik makaleler, özetleri ve analizleri        |
 | `Data-Codes`            | Veri üretimi, sentetik veri oluşturma (örn: SDV) ve veri değerlendirme araçları              |
+| `DeepLearning_ImageClassifier_CIFAR10` | CIFAR-10 veri seti kullanılarak TensorFlow/Keras ile geliştirilmiş bir Evrişimli Sinir Ağı (CNN) projesi. |
 
 ---
 
