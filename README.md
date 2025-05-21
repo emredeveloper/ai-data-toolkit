@@ -33,7 +33,7 @@ Bu depoda yer alan başlıca klasörler ve açıklamaları aşağıda sunulmuşt
 | `Fast API`              | FastAPI framework'ü kullanarak modern ve hızlı web API'leri geliştirme örnekleri             |
 | `Genel`                 | Çeşitli konulara dair genel amaçlı Python betikleri ve yardımcı araçlar                      |
 | `LM STUDIO`             | LM Studio yazılımı ile yerel bilgisayarda büyük dil modelleri (LLM) çalıştırma deneyleri      |
-| `MCP`                   | MCP (Muhtemelen "Multi-Cloud Platform" veya benzeri bir proje) ile ilgili uygulamalar        |
+| `MCP`                   | MCP ile ilgili uygulamalar        |
 | `MCP-Local`             | MCP projesinin yerel geliştirme ortamı için sunucu ve istemci tarafı örnekleri               |
 | `Machine Learning`      | SMOTE gibi veri ön işleme teknikleri dahil çeşitli makine öğrenmesi algoritmalarının uygulamaları |
 | `Ollama Apps`           | Ollama platformu ile yerel LLM'leri kullanarak geliştirilmiş çeşitli uygulamalar ve araçlar   |
