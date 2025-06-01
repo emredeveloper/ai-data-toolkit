@@ -4,6 +4,7 @@ numpy
 pandas
 tqdm
 gym
+statsmodels
 
 # Visualization
 matplotlib
